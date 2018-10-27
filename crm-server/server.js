@@ -13,7 +13,13 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/account', (req, res) => {
-    res.send('Hello World!')
+    console.log(req.query.phoneNumber);
+    if(!req.query.phoneNumber) return res.status(400).end();
+    
+    const phone = require('phone')(req.query.phoneNumber);
+    console.log(phone);
+
+    res.send(phone);
 });
 
 
