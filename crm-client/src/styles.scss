@@ -2,8 +2,8 @@
 
 html {
     box-sizing: border-box;
-    // background: #222222 !important;
-    background: #ECEDF1 !important; 
+    background: #222222 !important;
+    // background: #ECEDF1 !important; 
 }
 
 *,
@@ -23,14 +23,14 @@ $global-link-color: #3B86FF;
 
 // 3. Your custom mixin overwrites.
 
-// .uk-card, .uk-card-default {
-//     background: black !important;
-//     color: white  !important; 
-// }
+.uk-card, .uk-card-default {
+    background: black !important;
+    color: white  !important; 
+}
 
-// .uk-card-default .uk-card-title{
-//     color: white  !important; 
-// }
+.uk-card-default .uk-card-title{
+    color: white  !important; 
+}
 
 // 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";

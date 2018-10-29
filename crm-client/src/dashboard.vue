@@ -24,6 +24,8 @@
     <p class="type">{{ item.type }}</p>
     <p class="score">Score {{ item.score }}</p>
     <p class="magnitude">Magnitude {{ item.magnitude }}</p>
+    <p class="magnitude">Keywords {{ item.entities }}</p>
+
          <img width="250"  :src="item.giphyurl"/>
 
 
@@ -104,18 +106,20 @@ export default Vue.extend({
 }
 
 p.input {
-  color: black;
+  // color: black;
+  font-size: 30px;
   margin-top: 20px;
 }
 
 .type,
 .score,
 .magnitude {
-  font-size: 9px;
+  font-size: 18px;
   margin-top: 2px;
   margin-bottom: 2px;
 
   color: #555;
+  color: white;
 }
 </style>
 

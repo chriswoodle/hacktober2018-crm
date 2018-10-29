@@ -12,7 +12,17 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+const data = [{ "coordinates": [-96.7539681, 32.9909167], "name": "network issue", "class": "LL5", "mass": "500", "year": 2018 }];
+
 app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/data', (req, res) => res.send(data));
+
 
 app.get('/account', (req, res) => {
     console.log(req.query.phoneNumber);
@@ -46,8 +56,10 @@ app.post('/assist', (req, res) => {
             magnitude: body.magnitude,
             type: req.body.current_task || req.body.CurrentTask,
             input: req.body.current_input || req.body.CurrentInput,
-            giphyurl: body.giphyUrl
+            giphyurl: body.giphyUrl,
+            entities: JSON.parse(body.entities).map(item => item.name)
         });
+        data.push({ "coordinates": [-96.7539681, 32.9909167], "name": "network issue", "class": "LL5", "mass": "500", "year": 2018 });
     });
 
     res.send({
